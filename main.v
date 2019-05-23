@@ -13,64 +13,9 @@ module main(
 
     );
 
-/*reg [11:0] count_a;
-reg [23:0] count_b;
-
-// внутри кадра
-wire [9:0] frame;
-assign frame = count_b[9:0];
-
-// счетчик кадров
-wire [1:0] cadr;
-assign cadr = count_b[11:10];
-
-wire [8:0] offset;
-assign offset = count_b[23:15]; 
-
-wire [11:0] offset2;
-assign offset2 = {0,0,0,offset}; 
-
-wire prefix;    
-
-always @ (posedge clk)
-begin
-  //if (count_a == 2776) begin // 36 kHz
-  //if (count_a == 2271) begin // 22 kHz
-//  if (count_a == 1999) begin // 25 kHz
-//  if (count_a == 1907) begin // 26.2 kHz
-  if (count_a == 1800 + offset2) begin 
-    count_a <= 0;
-    count_b <= count_b + 1;
-  end else begin
-    count_a <= count_a + 1;
-  end 
-end    
-    
-    
-assign Led = count_b[23:16];    
-
-
-assign prefix = (frame == 0) || (frame == 2) || (frame == 4);
-assign prefix_x = (frame == 0) || (frame == 4);
-
-
-// xpand 26.2 khz
-//assign JB = prefix_x || (cadr[0] == 0 & (frame == 2)); 
-
-// sony 4 token
-assign JB = prefix || (cadr == 0 & ((frame == 16) || (frame == 18))) || (cadr == 1 & ((frame == 12) || (frame == 14))) || (cadr == 2 & ((frame == 24) || (frame == 26))) || (cadr == 3 & ((frame == 20) || (frame == 22))); 
-
-//assign JB = (count_b == 0) || (count_b == 2) || (count_b == 4) || (count_b == 12) || (count_b == 14);
-//assign JB = (count_b == 0) || (count_b == 2) || (count_b == 4) || (count_b == 12) || (count_b == 14);
-//assign JB = (count_b == 0) || (count_b == 2) || (count_b == 4) || (count_b == 12) || (count_b == 14);
-*/
-
-
 // edid
 edid_rom edid_rom_rx0 (.clk(CLK), .sclk_raw(RX_SCL), .sdat_raw(RX_SDA), .edid_debug());
   
-
-
 
 /////////////////////////
  //
@@ -154,9 +99,6 @@ dvi_out DVI (
   .TMDSB(TMDSB)
 );
   
-// монитор кадровой развертки 
-//assign ledclk = vdata[8];    
 assign ledclk = rx0_de;    
-
     
 endmodule
