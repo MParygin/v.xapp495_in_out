@@ -1,0 +1,34 @@
+CONFIG VCCAUX = 3.3;
+
+NET "dvi_rx0/rxclk" TNM_NET = DVI_CLOCK0;
+TIMESPEC TS_DVI_CLOCK0 = PERIOD "DVI_CLOCK0" 100 MHz HIGH 50%;
+
+
+# VIDEO OUT
+
+NET "TMDS<3>" LOC = "B6" | IOSTANDARD = TMDS_33 ; # Bank = 0, Pin name = IO_L8P,		  Sch name = TMDS-TX-CLK_P
+NET "TMDSB<3>" LOC = "A6" | IOSTANDARD = TMDS_33 ; # Bank = 0, Pin name = IO_L8N_VREF,	  Sch name = TMDS-TX-CLK_N
+NET "TMDS<0>"  LOC = "D8" | IOSTANDARD = TMDS_33 ; # Bank = 0, Pin name = IO_L11P,		  Sch name = TMDS-TX-0_P
+NET "TMDSB<0>"  LOC = "C8" | IOSTANDARD = TMDS_33 ; # Bank = 0, Pin name = IO_L11N,		  Sch name = TMDS-TX-0_N
+NET "TMDS<1>"  LOC = "C7" | IOSTANDARD = TMDS_33 ; # Bank = 0, Pin name = IO_L10P,		  Sch name = TMDS-TX-1_P
+NET "TMDSB<1>"  LOC = "A7" | IOSTANDARD = TMDS_33 ; # Bank = 0, Pin name = IO_L10N,		  Sch name = TMDS-TX-1_N
+NET "TMDS<2>"  LOC = "B8" | IOSTANDARD = TMDS_33 ; # Bank = 0, Pin name = IO_L33P,		  Sch name = TMDS-TX-2_P
+NET "TMDSB<2>"  LOC = "A8" | IOSTANDARD = TMDS_33 ; # Bank = 0, Pin name = IO_L33N,		  Sch name = TMDS-TX-2_N
+
+
+##################################################
+# TMDS pairs for Atlys IN (FPGA Bank 1): J3
+##################################################
+NET "RX_TMDS<3>"  	LOC = "H17" |IOSTANDARD = TMDS_33 ; # CLK
+NET "RX_TMDSB<3>"  LOC = "H18" |IOSTANDARD = TMDS_33 ;
+NET "RX_TMDS<2>"  	LOC = "J16" |IOSTANDARD = TMDS_33 ; # Red
+NET "RX_TMDSB<2>"  LOC = "J18" |IOSTANDARD = TMDS_33 ;
+NET "RX_TMDS<1>"  	LOC = "L17" |IOSTANDARD = TMDS_33 ; # Green	
+NET "RX_TMDSB<1>"  LOC = "L18" |IOSTANDARD = TMDS_33 ;
+NET "RX_TMDS<0>"  	LOC = "K17" |IOSTANDARD = TMDS_33 ; # Blue	
+NET "RX_TMDSB<0>"  LOC = "K18" |IOSTANDARD = TMDS_33 ;
+
+NET "rstbtn_n" LOC = "T15" | IOSTANDARD = LVCMOS33;
+
+NET "RX_SCL"  LOC = "M16" | IOSTANDARD = LVCMOS33;
+NET "RX_SDA"  LOC = "M18" | IOSTANDARD = LVCMOS33;
